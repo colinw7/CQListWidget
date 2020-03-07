@@ -26,7 +26,7 @@ CQListWidget(QWidget *parent) :
 
 void
 CQListWidget::
-setModel(const CQListModel &model)
+setListModel(const CQListModel &model)
 {
   model_ = &model;
 
