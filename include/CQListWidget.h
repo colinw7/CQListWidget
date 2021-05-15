@@ -19,9 +19,9 @@ class CQListColumns {
   virtual const QString &value() const = 0;
 
   virtual int compare(const QString &lhs, const QString &rhs) {
-    if (lhs < rhs) return -1;
-    if (rhs > lhs) return  1;
-                   return  0;
+    if (lhs < rhs) { return -1; }
+    if (rhs > lhs) { return  1; }
+    return  0;
   }
 };
 
@@ -167,7 +167,7 @@ class CQListWidget : public QTableWidget {
  public:
   CQListWidget(QWidget *parent = 0);
 
-  void setModel(const CQListModel &model);
+  void setListModel(const CQListModel &model);
 
   bool columnsDialog() const { return columnsDialog_; }
 
