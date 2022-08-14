@@ -56,8 +56,8 @@ addWidgets()
   QPushButton *r_button = new QPushButton();
   QPushButton *l_button = new QPushButton();
 
-  r_button->setIcon(QIcon(QPixmap((const char **) right_xpm)));
-  l_button->setIcon(QIcon(QPixmap((const char **) left_xpm)));
+  r_button->setIcon(QIcon(QPixmap(const_cast<const char **>(right_xpm))));
+  l_button->setIcon(QIcon(QPixmap(const_cast<const char **>(left_xpm ))));
 
   connect(r_button, SIGNAL(clicked()), this, SLOT(addToDisplayed()));
   connect(l_button, SIGNAL(clicked()), this, SLOT(removeFromDisplayed()));
@@ -82,8 +82,8 @@ addWidgets()
   QPushButton *u_button = new QPushButton();
   QPushButton *d_button = new QPushButton();
 
-  u_button->setIcon(QIcon(QPixmap((const char **) up_xpm)));
-  d_button->setIcon(QIcon(QPixmap((const char **) down_xpm)));
+  u_button->setIcon(QIcon(QPixmap(const_cast<const char **>(up_xpm  ))));
+  d_button->setIcon(QIcon(QPixmap(const_cast<const char **>(down_xpm))));
 
   connect(u_button, SIGNAL(clicked()), this, SLOT(moveUpDisplayed()));
   connect(d_button, SIGNAL(clicked()), this, SLOT(moveDownDisplayed()));
