@@ -17,7 +17,7 @@ class ListWidget : public QListWidget {
    QListWidget(parent) {
   }
 
-  QSize sizeHint() const { return QSize(125,200); }
+  QSize sizeHint() const { return QSize(125, 200); }
 };
 
 CQListWidgetColumnsDialog::

@@ -116,8 +116,8 @@ populate()
   menu_column_ = column_num;
 
   // force resize
-  resize(size() + QSize(1,1));
-  resize(size() - QSize(1,1));
+  resize(size() + QSize(1, 1));
+  resize(size() - QSize(1, 1));
 }
 
 void
