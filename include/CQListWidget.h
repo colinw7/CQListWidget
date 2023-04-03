@@ -21,7 +21,7 @@ class CQListColumns {
   virtual int compare(const QString &lhs, const QString &rhs) {
     if (lhs < rhs) { return -1; }
     if (rhs > lhs) { return  1; }
-    return  0;
+    return 0;
   }
 };
 
@@ -34,21 +34,21 @@ class CQSTLColumns : public CQListColumns {
    columns_(columns) {
   }
 
-  bool begin() const {
+  bool begin() const override {
     p_ = columns_.begin();
 
     return p_ != columns_.end();
   }
 
-  bool next() const {
+  bool next() const override {
     ++p_;
 
     return p_ != columns_.end();
   }
 
-  int count() const { return columns_.size(); }
+  int count() const override { return columns_.size(); }
 
-  const QString &value() const { return *p_; }
+  const QString &value() const override { return *p_; }
 
   void add(const QString &value) {
     columns_.push_back(value);
@@ -86,21 +86,21 @@ class CQSTLRows : public CQListRows {
    rows_(rows) {
   }
 
-  bool begin() const {
+  bool begin() const override {
     p_ = rows_.begin();
 
     return p_ != rows_.end();
   }
 
-  bool next() const {
+  bool next() const override {
     ++p_;
 
     return p_ != rows_.end();
   }
 
-  int count() const { return rows_.size(); }
+  int count() const override { return rows_.size(); }
 
-  const QString &value(const QString &name) const {
+  const QString &value(const QString &name) const override {
     return (*p_).value(name);
   }
 
@@ -120,7 +120,7 @@ class CQSTLRows : public CQListRows {
 class CQListModel {
  public:
   CQListModel() :
-   columns_(0), rows_(0) {
+   columns_(nullptr), rows_(nullptr) {
   }
 
   CQListModel(const CQListColumns &columns, const CQListRows &rows) :
@@ -165,7 +165,7 @@ class CQListWidget : public QTableWidget {
   };
 
  public:
-  CQListWidget(QWidget *parent = 0);
+  CQListWidget(QWidget *parent = nullptr);
 
   void setListModel(const CQListModel &model);
 

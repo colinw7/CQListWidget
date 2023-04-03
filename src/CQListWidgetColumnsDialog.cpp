@@ -13,11 +13,11 @@
 
 class ListWidget : public QListWidget {
  public:
-  ListWidget(QWidget *parent=0) :
+  ListWidget(QWidget *parent=nullptr) :
    QListWidget(parent) {
   }
 
-  QSize sizeHint() const { return QSize(125, 200); }
+  QSize sizeHint() const override { return QSize(125, 200); }
 };
 
 CQListWidgetColumnsDialog::

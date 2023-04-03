@@ -6,7 +6,7 @@
 
 CQListWidget::
 CQListWidget(QWidget *parent) :
- QTableWidget(parent), model_(0), columnsDialog_(false), dialog_(0)
+ QTableWidget(parent), model_(nullptr), columnsDialog_(false), dialog_(nullptr)
 {
   verticalHeader()->hide();
 
@@ -17,7 +17,7 @@ CQListWidget(QWidget *parent) :
   QPixmap pixmap("select.xpm");
 
   icon_ = new QIcon(pixmap);
-  menu_ = 0;
+  menu_ = nullptr;
 
   populate();
 
