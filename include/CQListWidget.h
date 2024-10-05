@@ -25,6 +25,8 @@ class CQListColumns {
   }
 };
 
+//---
+
 template<typename T>
 class CQSTLColumns : public CQListColumns {
  public:
@@ -61,7 +63,7 @@ class CQSTLColumns : public CQListColumns {
   mutable const_iterator p_;
 };
 
-//------
+//---
 
 class CQListRows {
  public:
@@ -76,6 +78,8 @@ class CQListRows {
 
   virtual const QString &value(const QString &property) const = 0;
 };
+
+//---
 
 template<typename T>
 class CQSTLRows : public CQListRows {
@@ -115,7 +119,7 @@ class CQSTLRows : public CQListRows {
   mutable const_iterator p_;
 };
 
-//-------
+//---
 
 class CQListModel {
  public:
@@ -139,11 +143,11 @@ class CQListModel {
   const CQListRows    &rows   () const { return *rows_   ; }
 
  private:
-  CQListColumns const* columns_;
-  CQListRows    const* rows_;
+  CQListColumns const* columns_ { nullptr };
+  CQListRows    const* rows_    { nullptr };
 };
 
-//-------------
+//---
 
 class QIcon;
 class QMenu;
@@ -200,13 +204,13 @@ class CQListWidget : public QTableWidget {
  private:
   typedef std::list<Column> ColumnList;
 
-  CQListModel const*          model_;
-  QIcon*                      icon_;
-  QMenu*                      menu_;
+  CQListModel const*          model_         { nullptr };
+  QIcon*                      icon_          { nullptr };
+  QMenu*                      menu_          { nullptr };
   ColumnList                  columnList_;
-  int                         menu_column_;
-  bool                        columnsDialog_;
-  CQListWidgetColumnsDialog * dialog_;
+  int                         menu_column_   { -1 };
+  bool                        columnsDialog_ { false };
+  CQListWidgetColumnsDialog * dialog_        { nullptr };
 };
 
 #endif

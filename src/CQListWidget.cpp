@@ -6,7 +6,7 @@
 
 CQListWidget::
 CQListWidget(QWidget *parent) :
- QTableWidget(parent), model_(nullptr), columnsDialog_(false), dialog_(nullptr)
+ QTableWidget(parent)
 {
   verticalHeader()->hide();
 

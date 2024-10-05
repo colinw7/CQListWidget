@@ -20,6 +20,8 @@ class ListWidget : public QListWidget {
   QSize sizeHint() const override { return QSize(125, 200); }
 };
 
+//---
+
 CQListWidgetColumnsDialog::
 CQListWidgetColumnsDialog(CQListWidget *list) :
  QDialog(list), list_(list)
@@ -33,11 +35,11 @@ void
 CQListWidgetColumnsDialog::
 addWidgets()
 {
-  QVBoxLayout *vbox = new QVBoxLayout;
+  auto *vbox = new QVBoxLayout;
 
   setLayout(vbox);
 
-  QHBoxLayout *hbox = new QHBoxLayout;
+  auto *hbox = new QHBoxLayout;
 
   vbox->addLayout(hbox);
 
@@ -49,12 +51,12 @@ addWidgets()
   allList_->setSelectionMode(QAbstractItemView::ExtendedSelection);
 
   // list movement arrows
-  QVBoxLayout *vbox1 = new QVBoxLayout;
+  auto *vbox1 = new QVBoxLayout;
 
   hbox->addLayout(vbox1);
 
-  QPushButton *r_button = new QPushButton();
-  QPushButton *l_button = new QPushButton();
+  auto *r_button = new QPushButton();
+  auto *l_button = new QPushButton();
 
   r_button->setIcon(QIcon(QPixmap(const_cast<const char **>(right_xpm))));
   l_button->setIcon(QIcon(QPixmap(const_cast<const char **>(left_xpm ))));
@@ -75,12 +77,12 @@ addWidgets()
   hbox->addWidget(displayedList_);
 
   // list order arrows
-  QVBoxLayout *vbox2 = new QVBoxLayout;
+  auto *vbox2 = new QVBoxLayout;
 
   hbox->addLayout(vbox2);
 
-  QPushButton *u_button = new QPushButton();
-  QPushButton *d_button = new QPushButton();
+  auto *u_button = new QPushButton();
+  auto *d_button = new QPushButton();
 
   u_button->setIcon(QIcon(QPixmap(const_cast<const char **>(up_xpm  ))));
   d_button->setIcon(QIcon(QPixmap(const_cast<const char **>(down_xpm))));
@@ -94,13 +96,13 @@ addWidgets()
   vbox2->addStretch();
 
   // done button
-  QHBoxLayout *hbox1 = new QHBoxLayout;
+  auto *hbox1 = new QHBoxLayout;
 
   vbox->addLayout(hbox1);
 
   hbox1->addStretch();
 
-  QPushButton *done = new QPushButton("Done");
+  auto *done = new QPushButton("Done");
 
   hbox1->addWidget(done);
 
